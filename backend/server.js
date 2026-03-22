@@ -28,6 +28,11 @@ const MODEL = "meta-llama/Llama-2-7b-chat-hf"; // Using a model that supports st
 app.use("/auth", authRoutes);
 app.use("/stripe", stripeRoutes);
 
+// ✅ ADD HERE
+app.get("/ping", (req, res) => {
+  res.json({ message: "Backend is online!" });
+});
+
 // Get User Profile
 app.get("/me", authMiddleware, async (req, res) => {
   try {
@@ -47,10 +52,6 @@ app.get("/me", authMiddleware, async (req, res) => {
   }
 });
 
-// Health Check
-app.get("/ping", (req, res) => {
-  res.json({ message: "Backend is online!", db: mongoose.connection.readyState === 1 });
-});
 
 // Chat Endpoint with TRUE STREAMING
 app.post("/chat", async (req, res) => {
