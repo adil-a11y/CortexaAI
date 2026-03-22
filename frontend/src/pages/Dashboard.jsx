@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
+const API_BASE = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
+
 export default function Dashboard() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,8 +16,7 @@ export default function Dashboard() {
         return;
     }
 
-    const apiBase = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
-    fetch(`${apiBase}/me`, {
+    fetch(`${API_BASE}/me`, {
       headers: { Authorization: token },
     })
       .then(res => {

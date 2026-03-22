@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Message from "./Message";
 import InputBar from "./InputBar";
-
 import { suggestions } from "./suggestions";
+
+const API_BASE = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
 
 export default function ChatWindow({ chat, updateMessages }) {
   const [loading, setLoading] = useState(false);
@@ -17,8 +18,7 @@ export default function ChatWindow({ chat, updateMessages }) {
     setLoading(true);
 
     try {
-      const apiBase = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
-      const response = await fetch(`${apiBase}/chat`, {
+      const response = await fetch(`${API_BASE}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text }),

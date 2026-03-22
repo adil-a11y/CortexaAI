@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
+
 export default function Auth() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
@@ -19,11 +21,10 @@ export default function Auth() {
     e.preventDefault();
     setError("");
 
-    const apiBase = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
     const endpoint = isLogin ? "/auth/login" : "/auth/register";
 
     try {
-      const res = await fetch(`${apiBase}${endpoint}`, {
+      const res = await fetch(`${API_BASE}${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
