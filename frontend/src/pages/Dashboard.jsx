@@ -14,7 +14,7 @@ export default function Dashboard() {
         return;
     }
 
-    const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const apiBase = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
     fetch(`${apiBase}/me`, {
       headers: { Authorization: token },
     })

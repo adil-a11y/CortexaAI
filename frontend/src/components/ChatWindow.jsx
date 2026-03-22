@@ -17,7 +17,7 @@ export default function ChatWindow({ chat, updateMessages }) {
     setLoading(true);
 
     try {
-      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const apiBase = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
       const response = await fetch(`${apiBase}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

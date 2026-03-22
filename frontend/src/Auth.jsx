@@ -19,7 +19,7 @@ export default function Auth() {
     e.preventDefault();
     setError("");
 
-    const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const apiBase = import.meta.env.VITE_API_URL || "https://cortexaai-vf4u.onrender.com";
     const endpoint = isLogin ? "/auth/login" : "/auth/register";
 
     try {
