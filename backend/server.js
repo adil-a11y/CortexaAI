@@ -28,6 +28,19 @@ const MODEL = "meta-llama/Llama-2-7b-chat-hf"; // Using a model that supports st
 app.use("/auth", authRoutes);
 app.use("/stripe", stripeRoutes);
 
+// Root Route
+app.get("/", (req, res) => {
+  res.json({
+    status: "online",
+    message: "Welcome to the Cortexa AI Backend API!",
+    endpoints: {
+      ping: "/ping",
+      auth: "/auth/login",
+      chat: "/chat (POST)"
+    }
+  });
+});
+
 // ✅ ADD HERE
 app.get("/ping", (req, res) => {
   res.json({ message: "Backend is online!" });
