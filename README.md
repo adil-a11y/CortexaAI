@@ -30,5 +30,5 @@ Cortexa AI is a full-stack AI-powered application that enables users to interact
 
 ---
 
-👨‍💻 Engineer
-Adil | Full Stack Developer  
+👨‍💻 Adil
+Engineer | Full Stack Developer  
